@@ -1,0 +1,310 @@
+{
+    "custom/launcher": {
+        "format": " ",
+        "interval": "once",
+
+        "on-click": "swaync-client --toggle-panel",
+        "on-click-right": "vicinae toggle",
+        "on-click-middle": "pidof wlogout || wlogout",
+
+        "tooltip": false
+    },
+
+    "cpu": {
+        "interval": 10,
+        "format": " {usage}%",
+        "format-alt": "{min_frequency} GHz - {max_frequency} GHz"
+    },
+
+    "temperature": {
+        "thermal-zone": 6,
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip": false
+    },
+
+    "memory": {
+        "interval": 15,
+        "format": " {percentage}%",
+        "max-length": 10,
+        "tooltip": true,
+        "tooltip-format": " {used:0.1f} GB/{total:0.1f} GB ({percentage}%)"
+    },
+    
+    "network": {
+        "interval": 10,
+        "format-wifi": "  {essid}",
+        "format-ethernet": "󱘖 Ethernet",
+        "format-linked": "󱘖 {ifname} (No IP)",
+        "format-disabled": "󰖪 Offline",
+        "format-disconnected": "󰖪 Offline",
+        "tooltip-format-wifi": "󱘖 {signalStrength}% 󰩩 {frequency} GHz - {ipaddr}",
+        "tooltip-format-ethernet": "󰑩 {bandwidthTotalBytes} B/s - {ipaddr}",
+        "tooltip-format-disconnected": "Nessuna rete",
+        "tooltip-format-disabled": "WiFi Disabilitato",
+
+        "on-click": "hypr-network-manager",
+        "on-click-right": "rfkill toggle wifi",
+        "on-click-middle": "hypr-network-manager"
+    },
+
+    "bluetooth": {
+	    "format": "󰂯",
+	    "format-disabled": "󰂲 Spento",
+	    "format-no-controller": "󰂲 Spento",
+	    "format-off": "󰂲 Spento",
+	    "format-connected": "󰂱 ({num_connections}) {device_alias}",
+	    "tooltip-format-enumerate-connected": "󰂱 {device_alias}",
+	    "tooltip-format-enumerate-connected-battery": "󰂱 {device_alias} (󰁹 {device_battery_percentage}%)",
+        "max-length": 16,
+
+        "on-click": "pidof blueman-manager || blueman-manager && killall blueman-manager",
+        "on-click-right": "rfkill toggle bluetooth",
+        "on-click-middle": "~/.local/bin/buds"
+    },
+
+    "hyprland/workspaces": {
+        "disable-scroll": false,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": " ",
+            "2": " ",
+            "3": " ",
+            "4": " ",
+            "5": " ",
+            "6": " ",
+            "7": " ",
+            "default": " "
+        },
+
+        "on-click": "activate"
+    },
+
+    "hyprland/window": {
+        "format": " {title}",
+        "icon": false,
+        "separate-outputs": true,
+        "max-length": 50,
+        // I now consider myself to be a regex god
+        "rewrite": {
+            " \\([0-9]*\\ (.*)": " $1", // Telegram Desktop
+            " • (.*)": " $1", // Discord
+            " (\\([0-9]*\\) )?(.*) – .*": " $2", // Telegram Desktop
+            "(.*) — Mozilla Firefox": "$1",
+            "(.*/.*): .*": "$1", // GitHub repositories
+            " Prism Launcher.*": " Prism Launcher",
+            "(.*) — Prism Launcher.*": "Prism Launcher ($1)",
+            " Cemu.*FPS: ([0-9]+\\.[0-9]+).*TitleId.*\\] (.*) \\[.*": " Cemu - $2 ($1 FPS)",
+            " ": "Desktop"
+        },
+        "tooltip": false,
+
+        "on-click-right": "hyprctl dispatch 'hl.dsp.window.fullscreen()'",
+        "on-click-middle": "hyprctl dispatch 'hl.dsp.window.close()'"
+    },
+
+    "battery": {
+        "interval": 30,
+
+        "format": "{icon} {capacity}%",
+        //"format-icons": [" ", " ", " ", " ", " "],
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "format-charging": "{icon} {capacity}% ",
+        "format-plugged": "{icon} {capacity}% 󰚥",
+        "tooltip-format": "{power}W - {timeTo}",
+
+        "states": {
+            "full": 100,
+            "great": 97,
+            "good": 85,
+            "ok": 50,
+            "warning": 30,
+            "low": 20,
+            "critical": 10
+        },
+
+        "on-click": "pkexec ~/.local/bin/powersave && notify-send -a Sistema -h string:synchronous:power -h boolean:transient:true -t 2000 -u low -i battery 'Gestione prestazioni' 'Risparmio energetico attivato!'",
+        "on-click-right": "pkexec ~/.local/bin/balanced && notify-send -a Sistema -h string:synchronous:power -h boolean:transient:true -t 2000 -u low -i battery 'Gestione prestazioni' 'Modalità bilanciata attivata!'",
+        "on-click-middle": "pkexec ~/.local/bin/performance && notify-send -a Sistema -h string:synchronous:power -h boolean:transient:true -t 2000 -u low -i battery 'Gestione prestazioni' 'Modalità prestazioni attivata!'"
+    },
+
+    "pulseaudio": {
+        "interval": 2,
+        "format": "{icon} {volume}%",
+        "format-muted": " ({volume}%)",
+        "on-click": "pidof pavucontrol && pkill pavucontrol || pavucontrol -t 3",
+        "on-click-right": "wpctl set-mute @DEFAULT_SINK@ toggle",
+        "on-click-middle": "spotify",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_SINK@ 1%-; ~/.config/hypr/scripts/notify.sh volume",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_SINK@ 1%+; ~/.config/hypr/scripts/notify.sh volume",
+        "tooltip-format": "{desc}",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            //"speaker": "󰓃",
+            "hifi": "󰓃",
+            "hdmi": "󰽟",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", " "]
+        }
+    },
+
+    "custom/media-bw": {
+        "format": "",
+
+        "on-click": "playerctl previous",
+        "on-click-right": "~/.config/rofi/music/music",
+        "on-click-middle": "~/.config/rofi/music/music",
+
+        "tooltip": false
+    },
+    "custom/media-pp": {
+        "interval": 2,
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/audio-play-pause.sh 2>/dev/null",
+
+        "on-click": "playerctl play-pause",
+        "on-click-right": "~/.config/rofi/music/music",
+        "on-click-middle": "~/.config/rofi/music/music",
+
+        "return-type": "json",
+        "tooltip": false
+    },
+    "custom/media-fw": {
+        "format": "",
+
+        "on-click": "playerctl next",
+        "on-click-right": "~/.config/rofi/music/music",
+        "on-click-middle": "~/.config/rofi/music/music",
+
+        "tooltip": false
+    },
+    "mpris": {
+        "format": "{player_icon}  {title}",
+        "format-paused": "{player_icon}  <i>{title}</i>",
+        "tooltip-format": "{title} — {artist} — {player} — {position}/{length}",
+        "player-icons": {
+            "default": "",
+            "spotify": "",
+            "firefox": "",
+            "kdeconnect": ""
+        },
+        "status-icons": {
+            "paused": "⏸"
+	    },
+	    "ignored-players": ["kdeconnect"]
+    },
+    "group/media-controls": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/media-bw",
+            "custom/media-pp",
+            "custom/media-fw"
+        ]
+    },
+    "group/mpris-drawer": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 300,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "group/media-controls",
+            "mpris"
+        ]
+    },
+    "cava": {
+        "framerate": 20,
+        "autosens": 1,
+        "sensitivity": 0.1,
+        "bars": 6,
+        "lower_cutoff_freq": 50,
+        "higher_cutoff_freq": 10000,
+        "method": "pipewire",
+        "source": "auto",
+        "stereo": false,
+        "sleep_timer": 1,
+        "hide_on_silence": true,
+        "reverse": false,
+        "bar_delimiter": 0,
+        "monstercat": false,
+        "waves": false,
+        "noise_reduction": 0.77,
+        "input_delay": 2,
+        "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+        "actions": {
+                   "on-click-right": "mode"
+                   }
+    },
+
+    "backlight": {
+        "interval": 10,
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "scroll-step": -0.7,
+        "format-icons": ["󰃞", "󰃝", "󰃟", "󰃠"],
+
+        "on-click": "hyprctl eval 'ToggleHyprsunset()'",
+
+        "tooltip": false
+    },
+    "custom/ext_backlight": {
+        "interval": 5,
+        "exec": "~/.config/waybar/scripts/ddcutil.sh",
+        "format": "{icon} {percentage}%",
+        "format-icons": ["󰃞", "󰃝", "󰃟", "󰃠"],
+
+        "on-scroll-up": "for i in $(cat /tmp/ddcutil); do ddcutil setvcp --bus $i 10 + 5; done",
+        "on-scroll-down": "for i in $(cat /tmp/ddcutil); do ddcutil setvcp --bus $i 10 - 5; done",
+        "on-click": "hyprctl eval 'ToggleHyprsunset()'",
+        "on-click-right": "ddcui",
+
+        "tooltip": false,
+        "return-type": "json"
+    },
+
+    "clock": {
+        "format": " {:%H:%M}",
+        "format-alt": " {:%a %d %b}",
+        "locale": "it_CH.UTF-8",
+        "tooltip-format": "<tt><big>{calendar}</big></tt>",
+        "calendar": {
+                    "mode"          : "month",
+                    "weeks-pos"     : "left",
+                    "on-scroll"     : 1,
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                              "weeks":      "<span color='#99ffdd'><b>{}</b></span>",
+                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                              }
+                    }
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {"activated": " ", "deactivated": " "}
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "show-passive-items": true,
+        "spacing": 5
+    },
+
+    // disappear if monitor doesn't support DDC/CI
+    "custom/bluetoyellow": {
+        "interval": 30,
+        "return-type": "json",
+        
+        "exec": "~/.config/waybar/scripts/bluetoyellow.sh",
+
+        "format": "{}"
+    }
+}
+

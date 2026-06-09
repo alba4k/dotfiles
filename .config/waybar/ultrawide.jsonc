@@ -1,0 +1,49 @@
+{
+    "name": "ultrawide",
+    "layer": "bottom",
+    "position": "top",
+    "mod": "dock",
+    "height": 33,
+    "exclusive": true,
+    "passthrough": false,
+    "fixed-center": true,
+
+    "modules-left": [
+        "custom/launcher",
+        "cpu",
+        "temperature",
+        "memory",
+        "network",
+        "bluetooth"
+    ],
+    "modules-center": [
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-right": [
+        "battery",
+        "pulseaudio",
+        "group/mpris-drawer",
+        // "cava",
+        "custom/bluetoyellow",
+        "custom/ext_backlight",
+        "idle_inhibitor",
+        "clock",
+        "tray"
+    ],
+
+    "include": ["~/.config/waybar/modules.jsonc"],
+    "bluetooth": {
+        "max-length": 40
+    },
+
+    "hyprland/window": {
+        "max-length": 80
+    },
+
+    "cava": {
+        "bars": 16,
+        "stereo": true
+    }
+}
+

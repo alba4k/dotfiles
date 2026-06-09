@@ -1,0 +1,22 @@
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[user]
+	email = blaskoazzolaaaron@gmail.com
+	name = alba4k
+	signingkey = 911908BCEC4CD47C
+[commit]
+	gpgsign = true
+[rerere]
+	enabled = true
+[maintenance]
+	repo = /home/alba4k/Documenti/Cose/aur/albafetch-git
+[init]
+	defaultBranch = master
+[pull]
+	rebase = false
+[core]
+	autocrlf = input

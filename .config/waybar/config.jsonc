@@ -1,0 +1,25 @@
+/* 
+ * WAYBAR - alba4k
+ *
+ * Documentation: https://github.com/Alexays/Waybar/wiki
+ *
+ * This config started as a clone of my original Polybar configuration, which was itself based on https://github.com/axyl-os/axyl-i3wm/tree/master/etc/skel/.config/i3/polybar
+ */
+
+[
+    {
+        "name": "laptop",
+        "output": ["eDP-1"],
+        "include": ["~/.config/waybar/laptop.jsonc"]
+    },
+    {
+        "name": "regular",
+        "output": ["DP-5", "DP-7", "DP-9", "DP-6", "DP-8", "FLUXCAST"],
+        "include": ["~/.config/waybar/regular.jsonc"]
+    },
+    {
+        "name": "ultrawide",
+        "output": ["DP-1", "DP-3"],
+        "include": ["~/.config/waybar/ultrawide.jsonc"]
+    }
+]
