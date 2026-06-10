@@ -23,12 +23,17 @@ To use them, create an alias like
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 ```
 
-and clone them in your home folder using
+ You can now clone them in your home folder using
 ```
 git clone --bare -b main https://github.com/alba4k/dotfiles $HOME/.dotfiles.git
 dotfiles read-tree -mu HEAD
 dotfiles reset --hard HEAD
 dotfiles config --local status.showUntrackedFiles no
+```
+
+And update using
+```
+dotfiles pull
 ```
 
 > [!CAUTION]  
