@@ -126,7 +126,7 @@
          }
       },
       "raycast-compat": {
-         "enabled": false
+         "enabled": true
       },
       "shortcuts": {
          "enabled": false

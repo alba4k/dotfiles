@@ -22,6 +22,7 @@ hl.on("hyprland.start", function ()
         "swaync",
         "waybar",
         "vicinae server",
+        "syncthing --no-browser serve",
         -- Scripts
         "~/.config/hypr/scripts/ac_detect.sh",
         "~/.config/hypr/scripts/capslock.sh",
