@@ -11,13 +11,6 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("hyprpm reload")
 end)
 
--- I normally use:
---   - Hyprexpo
---      https://github.com/hyprwm/hyprland-plugins/tree/main/hyprexpo
---   - Hyprspace
---      https://github.com/KZDKM/Hyprspace
-
--- hl.bind("SUPER + W", hl.plugin.overview.toggle())
 
 local enabled = {
     ["dynamic-cursors"] = false,
@@ -114,8 +107,9 @@ if enabled["Hypr-DarkWindow"] then
     })
 end
 
+--[[
+hl.bind("SUPER + W", hl.plugin.overview.toggle())
 hl.config({
-    --[[
     plugin = {
         hyprexpo = {
             columns = 3,
@@ -155,5 +149,6 @@ hl.config({
             hideOverlayLayers = false,
         }
     }
-    ]]
 })
+]]
+
