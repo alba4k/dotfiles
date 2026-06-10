@@ -14,7 +14,9 @@
 
 ## Usage
 
-My dotfiles live in the `main` branch, you can find them [here](https://github.com/alba4k/dotfiles/tree/main)!
+
+> [!IMPORTANT]
+> My dotfiles live in the `main` branch, you can find them [here](https://github.com/alba4k/dotfiles/tree/main)!
 
 To use them, create an alias like
 ```sh
