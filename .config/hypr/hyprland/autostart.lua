@@ -28,9 +28,7 @@ hl.on("hyprland.start", function ()
         "~/.config/hypr/scripts/capslock.sh",
         "~/.config/hypr/scripts/volbright.sh --keyboard",
         -- Clipboard
-        --"cliphist wipe",
         "wl-clip-persist -c both",
-        --"wl-paste --watch cliphist store"
     }) do
         hl.exec_cmd(cmd)
     end
