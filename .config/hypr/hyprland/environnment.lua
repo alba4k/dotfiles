@@ -32,7 +32,7 @@ hl.env("ELECTRON_OZONE_PLATFORM_HINT", "wayland")
 
 -- Cursor
 hl.env("XCURSOR_THEME", "BreezeX-Dark")
-hl.env("XCURSOR_SIZE", "30") -- two less than xcursor
+hl.env("XCURSOR_SIZE", "30")
 hl.env("HYPRCURSOR_THEME", "BreezeX-Dark-hyprcursor")
 hl.env("HYPRCURSOR_SIZE", "32")
 
