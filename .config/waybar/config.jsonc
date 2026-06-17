@@ -21,5 +21,17 @@
         "name": "ultrawide",
         "output": ["DP-1", "DP-3"],
         "include": ["~/.config/waybar/ultrawide.jsonc"]
+    },
+    {
+        "name": "desktop-ultrawide",
+        "output": ["DP-2"],
+        "include": ["~/.config/waybar/ultrawide.jsonc"],
+
+        "temperature": {
+            "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
+            "format": "{icon} {temperatureC}°C",
+            "format-icons": ["", "", "", "", ""],
+            "tooltip": false
+        }
     }
 ]

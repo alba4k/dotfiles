@@ -2,6 +2,14 @@
 --
 -- Documentation: https://wiki.hyprland.org
 
+--[[
+local hostname
+for l in io.lines("/proc/sys/kernel/hostname") do
+    hostname = l
+end
+hl.notification.create({ text = hostname, timeout = 2000 })
+]]
+
 -- ##############################################
 -- ###                 COLORS                 ###
 -- ##############################################

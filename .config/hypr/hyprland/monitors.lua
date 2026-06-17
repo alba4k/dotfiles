@@ -23,8 +23,9 @@ local function detectLayout() -- global, also needed in binds.lua
                 break
             end
         -- Check for "zurich" setup (one DELL P3425WE)
-        elseif mon.description == "DELL P3425WE" then
+        elseif mon.description:find("DELL P3425WE") then
             layout = "zurich"
+            table.insert(screens, mon.name)
             break
         -- Check if plugged into some other display
         elseif mon.name ~= "FALLBACK" and mon.name ~= "eDP-1" then
@@ -47,7 +48,7 @@ local function applyLayout()
         hl.monitor({output = screens[2], mode = "1920x1080@72Hz", position = "1920x0", scale = 1})
     elseif layout == "zurich" then
         hl.monitor({output = "eDP-1", disabled = true})
-        hl.monitor({output = "desc:DELL P3425WE", mode = "3440x1440@100Hz", position = "0x0", scale = 1})
+        hl.monitor({output = screens[1], mode = "3440x1440@100Hz", position = "0x0", scale = 1})
     elseif layout ~= "docked" then -- layout == nil, fallback or laptop
         hl.config({decoration = {screen_shader = "~/.config/hypr/assets/rounded_corners.frag"}})
         hl.monitor({output = "eDP-1", mode = "preferred", position = "auto", scale = 1, disabled = false})

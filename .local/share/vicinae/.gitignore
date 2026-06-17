@@ -1,2 +1,3 @@
 ./**.db*
 ./clipboard-data
+./metadata.json

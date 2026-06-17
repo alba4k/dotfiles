@@ -23,6 +23,8 @@ local allow_keyboard = {
     "intel-hid-5-button-array",
     "at-translated-set-2-keyboard",
     "dp-[0-9]+",
+    -- Desktop
+    "power-button-?[0-9]*",
     -- ETH apartment
     "logitech-usb-receiver-keyboard",
     "logitech-g502-x-ls",

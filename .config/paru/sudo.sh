@@ -1,5 +1,8 @@
 #!/bin/sh
-if [[ "$hostname" = "desktop" ]]; then sudo $@; fi
-
-sudo -p "Impronta digitale o password:
+if [[ "$hostname" = "desktop" ]]; then
+    sudo $@
+else
+    sudo -p "Impronta digitale o password:
 " $@
+fi
+
