@@ -34,7 +34,7 @@ hl.env("ELECTRON_OZONE_PLATFORM_HINT", "wayland")
 hl.env("XCURSOR_THEME", "BreezeX-Dark")
 hl.env("XCURSOR_SIZE", "30")
 hl.env("HYPRCURSOR_THEME", "BreezeX-Dark-hyprcursor")
-hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("HYPRCURSOR_SIZE", "32")
 
 -- Random stuff
 hl.env("MAKEFLAGS", "-j16")

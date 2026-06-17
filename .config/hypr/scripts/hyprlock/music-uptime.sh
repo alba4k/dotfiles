@@ -1,5 +1,11 @@
 #!/bin/sh
-# alba4k - 2023
+# alba4k - 2026
+
+if [[ "$(uname -n)" = "desktop" ]]; then
+    echo -n "󱎫  "
+    uptime | sed -E 's/^[^,]*up *//; s/, *[[:digit:]]* users?.*//; s/days/giorni/; s/day/giorno/; s/min/min./; s/([[:digit:]]+):0?([[:digit:]]+)/\1 ore, \2 min./;'
+    exit
+fi
 
 playerctl=$(playerctl -a status 2>/dev/null)
 if echo "$playerctl" | grep -q Playing; then
