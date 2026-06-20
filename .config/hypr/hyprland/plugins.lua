@@ -15,7 +15,8 @@ end)
 local enabled = {
     ["dynamic-cursors"] = false,
     ["hymission"] = false,
-    ["Hypr-DarkWindow"] = false
+    ["Hypr-DarkWindow"] = false,
+    ["hypr-kinetic-scroll"] = false
 }
 
 for _, plugin in ipairs(hl.get_loaded_plugins()) do
@@ -105,6 +106,13 @@ if enabled["Hypr-DarkWindow"] then
             }
         }
     })
+end
+
+-- https://github.com/savonovv/hypr-kinetic-scroll
+if enabled["Hypr-DarkWindow"] then
+    hl.plugin.kinetic_scroll.disable_default()
+    hl.plugin.kinetic_scroll.enable("code")
+    hl.plugin.kinetic_scroll.enable("org.telegram.desktop")
 end
 
 --[[
