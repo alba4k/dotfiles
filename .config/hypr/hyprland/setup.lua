@@ -83,7 +83,7 @@ hl.config({
         cm_auto_hdr = 2,
         direct_scanout = 2,
         expand_undersized_textures = false,
-        new_render_scheduling = true,
+        new_render_scheduling = true
     },
 
     quirks = {

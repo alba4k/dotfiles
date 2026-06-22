@@ -23,7 +23,7 @@ hl.on("hyprland.start", function ()
         "waybar",
         "vicinae server",
         "syncthing --no-browser serve",
-        "openrgb -d 0 -m direct -c 001010 -d 1 -m direct -c 001010 -d 3 -m direct -c 001010",
+        "openrgb -d 0 -m direct -c 001010 -d 1 -m direct -c 001010 -d 2 -m direct -c 001010",
         -- Scripts
         "~/.config/hypr/scripts/ac_detect.sh",
         "~/.config/hypr/scripts/capslock.sh",

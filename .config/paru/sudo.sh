@@ -2,7 +2,7 @@
 if [[ "$(uname -n)" = "desktop" ]]; then
     sudo $@
 else
-    sudo -p "Impronta digitale o password:
+    sudo -p "[sudo] impronta digitale o password:
 " $@
 fi
 
