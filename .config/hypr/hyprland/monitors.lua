@@ -39,7 +39,7 @@ end
 
 local function applyLayout()
     local layout, screens = detectLayout()
-    hl.config({decoration = {screen_shader = ""}})
+    hl.config({["decoration.screen_shader"] = ""})
 
     if layout == "home" then
         table.sort(screens) -- Ensure L/R order is consistent
@@ -50,7 +50,7 @@ local function applyLayout()
         hl.monitor({output = "eDP-1", disabled = true})
         hl.monitor({output = screens[1], mode = "3440x1440@100Hz", position = "0x0", scale = 1})
     elseif layout ~= "docked" then -- layout == nil, fallback or laptop
-        hl.config({decoration = {screen_shader = "~/.config/hypr/assets/rounded_corners.frag"}})
+        hl.config({["decoration.screen_shader"] = "~/.config/hypr/assets/rounded_corners.frag"})
         hl.monitor({output = "eDP-1", mode = "preferred", position = "auto", scale = 1, disabled = false})
     end
 

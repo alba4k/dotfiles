@@ -65,9 +65,9 @@ hl.bind("CTRL + Print", hl.dsp.exec_cmd("grimblast --cursor copy screen && hyprc
 hl.bind("SUPER + Print", hl.dsp.exec_raw("flameshot launcher"))
 
 -- Cursor zoom
-hl.bind("SUPER + Z", function() hl.config({cursor = {zoom_factor = 1}}) end)
-hl.bind("SUPER + mouse_up", function() hl.config({cursor = {zoom_factor = hl.get_config("cursor.zoom_factor") * 0.8}}) end)
-hl.bind("SUPER + mouse_down", function() hl.config({cursor = {zoom_factor = hl.get_config("cursor.zoom_factor") * 1.25}}) end)
+hl.bind("SUPER + Z", function() hl.config({["cursor.zoom_factor"] = 1}) end)
+hl.bind("SUPER + mouse_up", function() hl.config({["cursor.zoom_factor"] = hl.get_config("cursor.zoom_factor") * 0.8}) end)
+hl.bind("SUPER + mouse_down", function() hl.config({["cursor.zoom_factor"] = hl.get_config("cursor.zoom_factor") * 1.25}) end)
 
 -- Move active workspace to other monitor
 hl.bind("SUPER + X", hl.dsp.workspace.move({monitor = "+1"}))

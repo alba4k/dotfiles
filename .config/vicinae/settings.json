@@ -11,8 +11,11 @@
 {
    "$schema": "https://vicinae.com/schemas/config.json",
    "close_on_focus_loss": false,
+   "consider_preedit": true,
    "pop_to_root_on_close": true,
    "activate_on_single_click": true,
+   "escape_key_behavior": "",
+   "favicon_service": "google",
    "font": {
       "normal": {
          "family": "Noto Sans",

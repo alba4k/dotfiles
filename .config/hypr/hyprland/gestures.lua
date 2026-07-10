@@ -13,6 +13,7 @@ hl.config({
         workspace_swipe_create_new = true,
         workspace_swipe_forever = true,
         workspace_swipe_direction_lock = false,
+        workspace_swipe_touch = true,
 
         close_max_timeout = 1000
     }

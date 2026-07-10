@@ -16,7 +16,8 @@ local enabled = {
     ["dynamic-cursors"] = false,
     ["hymission"] = false,
     ["Hypr-DarkWindow"] = false,
-    ["hypr-kinetic-scroll"] = false
+    ["hypr-kinetic-scroll"] = false,
+    ["Hyprspace"] = false
 }
 
 for _, plugin in ipairs(hl.get_loaded_plugins()) do
@@ -98,14 +99,8 @@ if enabled["Hypr-DarkWindow"] then
         },
         ["darkwindow:shade"] = "invert"
     })
-
-    hl.config({
-        plugin = {
-            darkwindow = {
-                load_shaders = "invert"
-            }
-        }
-    })
+    
+    hl.config({["plugin.darkwindow.load_shaders"] = "invert"})
 end
 
 -- https://github.com/savonovv/hypr-kinetic-scroll
@@ -113,50 +108,56 @@ if enabled["hypr-kinetic-scroll"] then
     hl.plugin.kinetic_scroll.disable_default()
     hl.plugin.kinetic_scroll.enable("code")
     hl.plugin.kinetic_scroll.enable("org.telegram.desktop")
+
+    hl.config({
+        plugin = {
+            kinetic_scroll = {
+                decel = 0.95,
+                min_velocity = 0.1,
+                delta_multiplier = 1.25,
+                stop_on_click = true
+            }
+        }
+    })
 end
 
---[[
-hl.bind("SUPER + W", hl.plugin.overview.toggle())
-hl.config({
-    plugin = {
-        hyprexpo = {
-            columns = 3,
-            gap_size = 0,
-            bg_col = C_BACKGROUND,
-            workspace_method = "first 1",
+-- https://github.com/KZDKM/Hyprspace
+if enabled["Hyprspace"] then
+    hl.bind("SUPER + W", hl.plugin.overview.toggle)
 
-            enable_gesture = true,
-            -- gesture_distance = 100,
-            -- gesture_positive = false,
-        },
+    hl.config({
+        plugin = {
+            overview = {
+                panelHeight = 200,
+                workspaceMargin = 15,
+                onBottom = true,
+                panelBorderWidth = 1,
+                workspaceBorderSize = 3,
+                dragAlpha = 0.7,
+                panelBorderColor = C_PRIMARY,
+                workspaceActiveBorder = C_PRIMARY,
+                disableGestures = false,
 
-        overview = {
-            panelHeight = 200,
-            workspaceMargin = 15,
-            onBottom = true,
-            panelBorderWidth = 0,
-            workspaceBorderSize = 3,
-            dragAlpha = 0.7,
-            panelBorderColor = C_PRIMARY,
-            workspaceActiveBorder = C_PRIMARY,
-            disableGestures = false,
+                autoScroll = false,
+                exitOnClick = false,
+                switchOnDrop = true,
+                exitOnSwitch = false,
 
-            autoScroll = false,
-            exitOnClick = false,
-            switchOnDrop = true,
-            exitOnSwitch = false,
+                affectStrut = true,
+                overrideGaps = false,
+                showNewWorkspace = true,
+                showEmptyWorkspace = false,
+                showSpecialWorkspace = false,
 
-            affectStrut = true,
-            overrideGaps = false,
-            showNewWorkspace = true,
-            showEmptyWorkspace = false,
-            showSpecialWorkspace = false,
-
-            hideBackgroundLayers = false,
-            hideTopLayers = false,
-            hideOverlayLayers = false,
+                hideBackgroundLayers = false,
+                hideTopLayers = false,
+                hideOverlayLayers = false,
+            }
         }
-    }
-})
-]]
+    })
+
+    if enabled["hymission"] then
+        hl.config({["plugin.overview.disableGestures"] = true})
+    end
+end
 

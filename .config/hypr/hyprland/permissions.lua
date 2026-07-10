@@ -8,6 +8,8 @@
 
 local allow_screencopy = {
     "/usr/bin/grim",
+    "/usr/lib/hyprland-preview-share-picker",
+    "/usr/local/bin/hyprland-share-picker",
     "/usr/bin/hyprlock",
     "/usr/bin/hyprpicker",
     "/usr/lib/xdg-desktop-portal-hyprland",

@@ -13,7 +13,7 @@ hl.window_rule({match = {class = ".*"}, idle_inhibit = "fullscreen"})
 for _, app in ipairs({
     "onedriver-launcher", "org.kde.kdeconnect.handler",
     --[["org.prismlauncher.PrismLauncher",]] "xdg-desktop-portal-gtk",
-    "[Ww]aydroid.*"
+    "[Ww]aydroid.*", "org.hyprland.xdg-desktop-portal-hyprland"
 }) do
     hl.window_rule({match = {class = app}, float = true})
 end
