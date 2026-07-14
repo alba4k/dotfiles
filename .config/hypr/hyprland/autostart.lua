@@ -18,6 +18,7 @@ hl.on("hyprland.start", function ()
         "hyprpaper",
         "hyprsunset",
         "kdeconnect-indicator",
+        "hypr-kdeconnect-portal",
         "lxpolkit",
         "swaync",
         "waybar",

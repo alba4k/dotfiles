@@ -1,3 +1,4 @@
 ./**.db*
+./favicon
 ./clipboard-data
 ./metadata.json

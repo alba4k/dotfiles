@@ -44,6 +44,7 @@ local allow_keyboard = {
     "tab-s10\\+-di-aaron.*",
     "ue-boom-2-di-aaron.*",
     -- Other
+    "hl-virtual-keyboard-hypr-kdeconnect-portal",
     "solaar-keyboard-?[0-9]*",
     "vicinae-snippet-virtual-keyboard",
     "wl_keyboard"
