@@ -28,7 +28,7 @@
         "custom/bluetoyellow",
         "custom/ext_backlight",
         "idle_inhibitor",
-        "clock",
+        "group/date-time-drawer",
         "tray"
     ],
 

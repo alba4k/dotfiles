@@ -26,18 +26,18 @@ hl.gesture({
   action = "workspace",
 })
 
---[[
 hl.gesture({
     fingers = 3,
+    mods = "SUPER",
     direction = "down",
     action = function() hl.exec_cmd("if pidof -q wlogout || pidof -q slurp; then pkill -f /usr/bin/slurp; else wlogout; fi") end
 })
 hl.gesture({
     fingers = 3,
+    mods = "SUPER",
     direction = "up",
     action = function() hl.exec_cmd("if pidof -q wlogout || pidof -q slurp; then pkill wlogout; else ~/.config/hypr/scripts/screenshot.sh; fi") end
 })
-]]
 
 -- 3-finger swipes
 hl.gesture({
@@ -72,12 +72,12 @@ hl.gesture({
   direction = "pinch",
   action = "close",
 })
-hl.gesture({
+--[[hl.gesture({   -- commented out cause I'd sometimes activate it by mistake when changing workspace
   fingers = 3,
   mods = "SUPER",
   direction = "swipe",
   action = "close",
-})
+})]]
 hl.gesture({
   fingers = 4,
   mods = "SUPER",

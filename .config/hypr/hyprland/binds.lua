@@ -16,6 +16,7 @@ hl.bind("SUPER + T", hl.dsp.exec_raw("kitty --title Kitty"))
 
 -- Just QOL lol
 hl.bind("SUPER + B", hl.dsp.exec_raw("buds"))
+hl.bind("SUPER + N", hl.dsp.exec_raw("swaync-client --hide-all"))
 
 -- Session Management
 hl.bind("SUPER + backspace", hl.dsp.exec_cmd("pidof -q wlogout && pkill wlogout || wlogout"))

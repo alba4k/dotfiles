@@ -16,6 +16,7 @@
    "activate_on_single_click": true,
    "escape_key_behavior": "",
    "favicon_service": "google",
+   "language": "system",
    "font": {
       "normal": {
          "family": "Noto Sans",
@@ -64,6 +65,53 @@
                "/usr/local/share/applications",
                "/usr/share/applications"
             ]
+         },
+         "entrypoints": {
+            "avahi-discover": {
+               "enabled": false
+            },
+            "bssh": {
+               "enabled": false
+            },
+            "bvnc": {
+               "enabled": false
+            },
+            "jconsole-java-openjdk": {
+               "enabled": false
+            },
+            "jconsole-java17-openjdk": {
+               "enabled": false
+            },
+            "jconsole-java21-openjdk": {
+               "enabled": false
+            },
+            "jshell-java-openjdk": {
+               "enabled": false
+            },
+            "jshell-java17-openjdk": {
+               "enabled": false
+            },
+            "jshell-java21-openjdk": {
+               "enabled": false
+            },
+            "nvim": {
+               "enabled": false
+            },
+            "qv4l2": {
+               "enabled": true
+            },
+            "qvidcap": {
+               "enabled": true
+            },
+            "xdvi": {
+               "enabled": false
+            },
+            "xgps": {
+               "enabled": false
+            },
+            "xgpsspeed": {
+               "enabled": false
+            }
          }
       },
       "browser-extension": {
@@ -85,10 +133,25 @@
             "documentation": {
                "enabled": false
             },
+            "keybind-settings": {
+               "enabled": false
+            },
+            "prune-memory": {
+               "enabled": false
+            },
+            "reload-scripts": {
+               "enabled": false
+            },
             "report-bug": {
+               "enabled": false
+            },
+            "show-logs": {
                "enabled": true
             },
             "sponsor": {
+               "enabled": false
+            },
+            "store": {
                "enabled": false
             }
          }
@@ -102,11 +165,16 @@
          }
       },
       "files": {
+         "enabled": false,
          "preferences": {
-            "autoIndexing": true,
+            "autoIndexing": false,
             "excludedPaths": "",
             "paths": "/home/alba4k",
-            "watcherPaths": ""
+            "watcherPaths": "",
+            "excludedIndexingPaths": [],
+            "indexingPaths": [
+               "/home/alba4k"
+            ]
          }
       },
       "power": {

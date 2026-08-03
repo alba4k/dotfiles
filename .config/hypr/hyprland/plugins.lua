@@ -59,11 +59,13 @@ end
 
 -- https://github.com/gfhdhytghd/hymission
 if enabled["hymission"] then
+    hl.bind("SUPER + W", hl.plugin.hymission.toggle)
+    hl.bind("SUPER + SHIFT + W", function() hl.plugin.hymission.toggle("onlycurrentworkspace") end)
+
     hl.plugin.hymission.gesture({
         fingers = 3,
         direction = "vertical",
         action = "toggle",
-        --args = "forceall",
         args = "onlycurrentworkspace",
     })
     hl.plugin.hymission.gesture({
@@ -77,13 +79,24 @@ if enabled["hymission"] then
         plugin = {
             hymission = {
                 layout_engine = "apple",
-                niri_mode = 0,
                 switch_release_key = "Super_L",
                 workspace_strip_anchor = "left",
-                show_focus_indicator = 1,
+                show_focus_indicator = 0,
 
-                workspace_strip_thickness = 300,
-                workspace_strip_gap = 12
+                workspace_strip_thickness = 320,
+                workspace_strip_gap = 0,
+                expand_selected_window = 1,
+                hover_expand_scale = 1.1,
+
+                workspace_strip_background_color = "rgba(31324400)",
+                workspace_strip_inactive_color = "rgba(313244ff)",
+                workspace_strip_active_color = "rgba(313244ff)",
+                workspace_strip_empty_color = "rgba(00000000)",
+                workspace_strip_new_color = "rgba(45475a55)",
+                workspace_strip_hover_tint_color = "rgba(cba6f755)",
+                workspace_strip_active_tint_color = "rgba(cba6f722)",
+                workspace_strip_inactive_tint_color = "rgba(00000000)",
+                workspace_strip_plus_color = "rgba(cba6f7ff)",
             },
         },
     })
@@ -107,7 +120,7 @@ end
 if enabled["hypr-kinetic-scroll"] then
     hl.plugin.kinetic_scroll.disable_default()
     hl.plugin.kinetic_scroll.enable("code")
-    hl.plugin.kinetic_scroll.enable("org.telegram.desktop")
+    hl.plugin.kinetic_scroll.enable("steam")
 
     hl.config({
         plugin = {
@@ -123,8 +136,6 @@ end
 
 -- https://github.com/KZDKM/Hyprspace
 if enabled["Hyprspace"] then
-    hl.bind("SUPER + W", hl.plugin.overview.toggle)
-
     hl.config({
         plugin = {
             overview = {
@@ -143,7 +154,7 @@ if enabled["Hyprspace"] then
                 switchOnDrop = true,
                 exitOnSwitch = false,
 
-                affectStrut = true,
+                affectStrut = false,
                 overrideGaps = false,
                 showNewWorkspace = true,
                 showEmptyWorkspace = false,
@@ -158,6 +169,8 @@ if enabled["Hyprspace"] then
 
     if enabled["hymission"] then
         hl.config({["plugin.overview.disableGestures"] = true})
+    else
+        hl.plugin.hymission.toggle("reverse")
     end
 end
 

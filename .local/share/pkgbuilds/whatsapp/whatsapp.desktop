@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=WhatsApp
+Comment=WhatsApp desktop with built-in catppuccin theme
+Exec=/opt/whatsapp-catppuccin/WhatsApp --use-gl=desktop
+Icon=whatsapp
+Encoding=UTF-8
+StartupWMClass=WhatsApp
+Terminal=false
+StartupNotify=true
+Type=Application
+Categories=Network;Chat;InstantMessaging;Application;

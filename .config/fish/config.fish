@@ -34,6 +34,7 @@ alias black="python -c \"import tkinter as tk; tk.Tk().config(bg='#000000');tk.m
 
 alias reboot="systemctl reboot" # so I can uise --firmware-setup
 alias hibernate="systemctl hibernate"
+
 if [ "$TERM" = "xterm-kitty" ]
     alias icat="kitten icat"
     alias ssh="kitten ssh"
@@ -49,6 +50,8 @@ set tide_git_icon 
 #alias sudoedit="doas nvim"
 
 alias v4l2start="gst-launch-1.0 libcamerasrc name="hi556" ! queue ! videoconvert ! video/x-raw,format=YUY2 ! v4l2sink name=v4l2sink-hi556 device=/dev/video60"
+
+bind ctrl-backspace backward-kill-path-component
 
 zoxide init --cmd cd fish | source
 

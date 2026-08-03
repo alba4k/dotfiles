@@ -1,0 +1,66 @@
+# Maintainer: Aaron Blasko <blaskoazzolaaaron [at] gmail [dot] com>
+# Contributor: Damian Nowak <spam at nowaker dot net>
+# Contributor: Fredy García <frealgagu at gmail dot com>a
+# https://aur.archlinux.org/packages/whatsapp-nativefier
+
+pkgname=whatsapp-catppuccin
+pkgver=2.3000.1019818867
+pkgrel=1
+pkgdesc="WhatsApp desktop (nativefier/Electron) with save-as download dialog, single instance, tray, menu bar, spell checker, catppuccin theme"
+arch=("armv7l" "i686" "x86_64")
+url="https://web.whatsapp.com/"
+license=("custom")
+depends=("gtk3" "libxss" "nss")
+optdepends=("libindicator-gtk3")
+makedepends=("imagemagick" "nodejs-nativefier" "unzip")
+source=(
+  "whatsapp.png"
+  "whatsapp.desktop"
+  "inject.js"
+  "catppuccin.css"
+)
+sha256sums=(
+    '3899581abcfed9b40b7208bbbca8bdbfe3ae9655980dbf55f04dec9cb3309f27'
+    'SKIP'
+    'SKIP'
+    'SKIP'
+)
+
+build() {
+  cd "${srcdir}"
+
+  nativefier \
+    --name "WhatsApp" \
+    --icon "whatsapp.png" \
+    --user-agent "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Chrome/132.0.6834.164 Safari/605.1.15" \
+    --electron-version 43.0.0 \
+    --inject "inject.js" \
+    --inject "catppuccin.css" \
+    --verbose \
+    --single-instance \
+    --tray \
+    --file-download-options '{
+      "saveAs": true,
+      "showProgressBar": true,
+      "showBadge": true
+    }' \
+    "${url}"
+}
+
+package() {
+  install -dm755 "${pkgdir}/"{opt,usr/{bin,share/{applications,licenses/${pkgname}}}}
+
+  _folder=$(ls "${srcdir}" | grep "[Ww]hats[-]*[Aa]pp-linux-")
+  _binary=$(ls "${srcdir}/${_folder}" | grep "[Ww]hats[-]*[Aa]pp")
+
+  cp -rL "${srcdir}/${_folder}" "${pkgdir}/opt/${pkgname}"
+  chmod -R a+rX "${pkgdir}/opt/${pkgname}"
+  ln -s "/opt/${pkgname}/${_binary}" "${pkgdir}/usr/bin/${pkgname}"
+  install -Dm644 "${srcdir}/whatsapp.desktop" "${pkgdir}/usr/share/applications/whatsapp.desktop"
+  install -Dm644 "${pkgdir}/opt/${pkgname}/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+
+  for _size in "192x192" "128x128" "96x96" "64x64" "48x48" "32x32" "24x24" "22x22" "20x20" "16x16" "8x8"; do
+    install -dm755 "${pkgdir}/usr/share/icons/hicolor/${_size}/apps"
+    magick "${srcdir}/whatsapp.png" -strip -resize "${_size}" "${pkgdir}/usr/share/icons/hicolor/${_size}/apps/whatsapp.png"
+  done
+}

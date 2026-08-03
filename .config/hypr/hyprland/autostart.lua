@@ -9,7 +9,7 @@
 hl.on("hyprland.start", function ()
     for _, cmd in ipairs({
         -- Background
-        "bitwarden --autostart",
+        "sleep 2; SECURE_KEY_CONTAINER_BACKEND=keyctl bitwarden --autostart",
         "blueman-applet",
         "hypr-network-manager --daemon",
         "hyprctl devices | grep -q logitech && solaar -w hide -b solaar",

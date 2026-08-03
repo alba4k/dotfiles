@@ -1,0 +1,26 @@
+pkgbase = whatsapp-catppuccin
+	pkgdesc = WhatsApp desktop (nativefier/Electron) with save-as download dialog, single instance, tray, menu bar, spell checker, catppuccin theme
+	pkgver = 2.3000.1019818867
+	pkgrel = 1
+	url = https://web.whatsapp.com/
+	arch = armv7l
+	arch = i686
+	arch = x86_64
+	license = custom
+	makedepends = imagemagick
+	makedepends = nodejs-nativefier
+	makedepends = unzip
+	depends = gtk3
+	depends = libxss
+	depends = nss
+	optdepends = libindicator-gtk3
+	source = whatsapp.png
+	source = whatsapp.desktop
+	source = inject.js
+	source = catppuccin.css
+	sha256sums = 3899581abcfed9b40b7208bbbca8bdbfe3ae9655980dbf55f04dec9cb3309f27
+	sha256sums = aaf1b389a300cb0d7d3a3069adf11eed840620abf879cbe2b0b9d8075f70b2ce
+	sha256sums = 22ba360d698d9bb8257e91e7360aa0cf669e7e58a512e9b7aa0ee4b0504563d8
+	sha256sums = c1615dc623ad7d885306c497efcfc196d3e6945686536fb71d6c25759c479987
+
+pkgname = whatsapp-catppuccin

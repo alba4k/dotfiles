@@ -267,9 +267,10 @@
         "return-type": "json"
     },
 
-    "clock": {
+    "clock#time": {
+        "interval": 1,
         "format": " {:%H:%M}",
-        "format-alt": " {:%a %d %b}",
+        "format-alt": " {:%H:%M:%S}",
         "locale": "it_CH.UTF-8",
         "tooltip-format": "<tt><big>{calendar}</big></tt>",
         "calendar": {
@@ -284,6 +285,35 @@
                               "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
                               }
                     }
+    },
+    "clock#date": {
+        "interval": 5,
+        "format": " {:L%a %d %B}",
+        "locale": "it_CH.UTF-8",
+        "tooltip-format": "<tt><big>{calendar}</big></tt>",
+        "calendar": {
+                    "mode"          : "month",
+                    "weeks-pos"     : "left",
+                    "on-scroll"     : 1,
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                              "weeks":      "<span color='#99ffdd'><b>{}</b></span>",
+                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                              }
+                    }
+    },
+    "group/date-time-drawer": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 300,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "clock#time",
+            "clock#date"
+        ]
     },
 
     "idle_inhibitor": {

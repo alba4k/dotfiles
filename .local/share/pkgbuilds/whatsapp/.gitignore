@@ -1,0 +1,8 @@
+*
+!.gitignore
+!PKGBUILD
+!.SRCINFO
+!inject.js
+!whatsapp.desktop
+!whatsapp.png
+!catppuccin.css

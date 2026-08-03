@@ -32,12 +32,12 @@ hl.env("ELECTRON_OZONE_PLATFORM_HINT", "wayland")
 
 -- Cursor
 hl.env("XCURSOR_THEME", "BreezeX-Dark")
-hl.env("XCURSOR_SIZE", "30")
+hl.env("XCURSOR_SIZE", "32")
 hl.env("HYPRCURSOR_THEME", "BreezeX-Dark-hyprcursor")
 hl.env("HYPRCURSOR_SIZE", "32")
 
 -- Random stuff
-hl.env("MAKEFLAGS", "-j16")
+hl.env("MAKEFLAGS", "-j14")
 hl.env("MANPAGER", "sh -c 'sed -u -e \"s/\\x1B\\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'")
 --hl.env("SSH_AUTH_SOCK", "/run/user/1000/ssh-agent.socket")
 hl.env("SSH_AUTH_SOCK", "/home/alba4k/.bitwarden-ssh-agent.sock")

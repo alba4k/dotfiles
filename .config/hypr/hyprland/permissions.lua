@@ -37,17 +37,21 @@ local allow_keyboard = {
     "generic-usb-audio",
     "logitech-g502-hero-gaming-mouse-keyboard",
     "logitech-g413-carbon-mechanical-gaming-keyboard-?[0-9]*",
+    "dell-dell-professional-sound-bar-ae515",
+    "dell-dell-professional-sound-bar-ae515-consumer-control",
     -- Bluetooth
     "galaxy-buds-pro.*",
     "buds4-pro.*",
     "s23-di-aaron.*",
     "tab-s10\\+-di-aaron.*",
     "ue-boom-2-di-aaron.*",
-    -- Other
+    -- Virtual
     "hl-virtual-keyboard-hypr-kdeconnect-portal",
     "solaar-keyboard-?[0-9]*",
     "vicinae-snippet-virtual-keyboard",
-    "wl_keyboard"
+    "wl_keyboard",
+    -- Other
+    "8bitdo-8bitdo-ultimate-2-wireless-controller-for-pc-keyboard"
 }
 
 for _, bin in ipairs(allow_screencopy) do

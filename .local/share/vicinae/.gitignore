@@ -1,4 +1,5 @@
 ./**.db*
 ./favicon
 ./clipboard-data
+./sipport
 ./metadata.json

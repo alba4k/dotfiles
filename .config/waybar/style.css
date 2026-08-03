@@ -270,12 +270,20 @@ tooltip {
 
 }
 
-#clock {
+#clock.time {
     background: #81a1c1;
     border-radius: 0px 12px 12px 0px;
     padding-left: 6px;
     padding-right: 12px;
     margin-right: 15px;
+}
+
+#clock.date {
+    background: #81a1c1;
+    border-radius: 0px;
+    padding-left: 6px;
+    padding-right: 0;
+    margin-right: 0px;
 }
 
 #tray {
