@@ -33,6 +33,7 @@ hl.bind("SUPER + SHIFT + F", hl.dsp.window.float({action = "toggle"}))
 -- Moving windows with the mouse
 hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), {mouse = true})
 hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), {mouse = true})
+hl.bind("SUPER + SHIFT + mouse:273", hl.dsp.window.resize({keep_aspect_ratio = true}), {mouse = true})
 
 -- Random
 hl.bind("SUPER + S", hl.dsp.window.toggle_swallow())
@@ -57,6 +58,7 @@ hl.window_rule({match = {class = "discord"}, workspace = 3})
 hl.window_rule({match = {class = "vesktop"}, workspace = 3})
 hl.window_rule({match = {class = "[Ww]hats[Aa]pp.*"}, workspace = 3})
 hl.window_rule({match = {class = "code.*"}, workspace = 4})
+hl.window_rule({match = {class = "dev.zed.Zed*"}, workspace = 4})
 hl.window_rule({match = {class = "Spotify"}, workspace = 5})
 hl.window_rule({match = {class = "org.prismlauncher.PrismLauncher"}, workspace = 6})
 hl.window_rule({match = {class = "steam"}, workspace = 6})
