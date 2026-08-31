@@ -9,12 +9,12 @@
 hl.on("hyprland.start", function ()
     for _, cmd in ipairs({
         -- Background
-        "sleep 2; SECURE_KEY_CONTAINER_BACKEND=keyctl bitwarden --autostart",
+        "sleep 2; bitwarden --autostart",
         "blueman-applet",
         "hypr-network-manager --daemon",
         "hyprctl devices | grep -q logitech && solaar -w hide -b solaar",
         "hypridle --quiet",
-        "hyprlock -c ~/.config/hypr/hyprlock/hyprlogin.conf -q || hyprctl dispatch exit", -- Login Manager
+        "hyprlock --immediate-render --no-fade-in -q || hyprctl dispatch exit", -- Login Manager
         "hyprpaper",
         "hyprsunset",
         "kdeconnect-indicator",

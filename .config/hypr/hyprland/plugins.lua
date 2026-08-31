@@ -119,8 +119,8 @@ end
 -- https://github.com/savonovv/hypr-kinetic-scroll
 if enabled["hypr-kinetic-scroll"] then
     hl.plugin.kinetic_scroll.disable_default()
-    hl.plugin.kinetic_scroll.enable("dev.zed.Zed")
     hl.plugin.kinetic_scroll.enable("code")
+    hl.plugin.kinetic_scroll.enable("dev.zed.Zed")
     hl.plugin.kinetic_scroll.enable("steam")
 
     hl.config({

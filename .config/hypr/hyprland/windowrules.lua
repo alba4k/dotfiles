@@ -71,12 +71,40 @@ hl.window_rule({match = {class = "org.kde.kdeconnect.daemon", title = "Ricezione
 hl.window_rule({
     match = {
         class = "firefox",
-        title = "Picture-in-Picture"
+        title = "(Picture-in-Picture)|(Informazioni su Mozilla Firefox)"
     },
 
     float = true,
     keep_aspect_ratio = true
 })
+
+-- Make some windows floating - https://wiki.hypr.land/configuring/code-snippets/#float-browsers-extension-windows
+hl.on("window.open", function(w)
+    if w.class ~= "firefox" then return end
+    if w.initial_title ~= "Mozilla Firefox" then return end
+
+    local ff_windows = hl.get_windows({class = "firefox"})
+    if #ff_windows <= 1 then return end
+
+    local sub
+    sub = hl.on("window.title", function(tw)
+        if tw.address ~= w.address then return end
+        if tw.title == ""
+            or tw.title == "Mozilla Firefox"
+            or tw.title == "about:blank"
+            or tw.title == "Informazioni su Mozilla Firefox" then
+            return
+        end
+
+        sub:remove()
+
+        if tw.title:match("^Estensione:") then
+            hl.dispatch(hl.dsp.window.float({action = "set", window = tw}))
+            hl.dispatch(hl.dsp.window.resize({x = 400, y = 600, window = tw}))
+            hl.dispatch(hl.dsp.window.center({window = tw}))
+        end
+    end)
+end)
 
 -- Various authentication stuff
 hl.window_rule({match = {class = "lxpolkit"}, stay_focused = true, pin = true})

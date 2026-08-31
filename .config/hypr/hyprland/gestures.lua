@@ -15,7 +15,12 @@ hl.config({
         workspace_swipe_direction_lock = false,
         workspace_swipe_touch = true,
 
-        close_max_timeout = 1000
+        close_max_timeout = 1000,
+
+        scrolling = {
+            move_snap_to_grid = false,
+            move_snap_cursor = false
+        }
     }
 })
 

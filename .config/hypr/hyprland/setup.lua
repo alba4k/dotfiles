@@ -52,12 +52,13 @@ hl.config({
     misc = {
         disable_hyprland_logo = true,
         disable_splash_rendering = false,
+        background_color = C_BACKGROUND,
 
         disable_watchdog_warning = true,
 
-        disable_autoreload = false, -- hyprctl reload to manually reload
+        disable_autoreload = true, -- hyprctl reload to manually reload
 
-        animate_manual_resizes = true,
+        animate_manual_resizes = false,
         animate_mouse_windowdragging = true,
 
         mouse_move_enables_dpms = true,
@@ -74,6 +75,8 @@ hl.config({
         middle_click_paste = false,
 
         allow_session_lock_restore = true,
+        session_lock_blur = true,
+        session_lock_xray = true,
 
         enable_anr_dialog = false,
         anr_missed_pings = 2,
