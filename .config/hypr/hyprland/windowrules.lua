@@ -25,7 +25,7 @@ hl.window_rule({match = {class = "Bitwarden"}, no_screen_share = true})
 
 -- Games
 for _, app in ipairs({"hollow_knight.x86_64", "hexceed", "steam_app_[0-9]*", "Minecraft.*", "ShadowOfTheTombRaider"}) do
-    hl.window_rule({match = {class = app}, tile = true, immediate = true, workspace = 6})
+    hl.window_rule({match = {class = app}, tile = true, immediate = true, workspace = 6, fullscreen = true})
 end
 
 -- Flameshot

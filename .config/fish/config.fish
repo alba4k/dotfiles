@@ -1,5 +1,5 @@
 if status --is-interactive
-    albafetch &
+    albafetch
     # uptime-record -s
 end
 

@@ -17,7 +17,11 @@
    "escape_key_behavior": "",
    "favicon_service": "google",
    "language": "system",
+   "tray": {
+      "enabled": false
+   },
    "font": {
+      "rendering": "qt",
       "normal": {
          "family": "Noto Sans",
          "size": 14
