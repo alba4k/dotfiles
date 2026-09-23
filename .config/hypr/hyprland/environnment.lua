@@ -42,4 +42,4 @@ hl.env("MANPAGER", "sh -c 'sed -u -e \"s/\\x1B\\[[0-9;]*m//g; s/.\\x08//g\" | ba
 hl.env("SSH_AUTH_SOCK", "/home/alba4k/.bitwarden-ssh-agent.sock")
 hl.env("EDITOR", "/bin/nvim")
 hl.env("AQ_DRM_DEVICES", "/dev/dri/card0:/dev/dri/card1") -- Run on iGPU
-hl.env("SECURE_KEY_CONTAINER_BACKEND", "keyctl") -- https://github.com/bitwarden/clients/issues/21661
+hl.env("SECURE_KEY_CONTAINER_BACKEND", "mlock") -- https://github.com/bitwarden/clients/issues/21661
