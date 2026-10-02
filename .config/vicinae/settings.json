@@ -121,6 +121,11 @@
       "browser-extension": {
          "enabled": false
       },
+      "calculator": {
+         "preferences": {
+            "backend": "qalculate"
+         }
+      },
       "clipboard": {
          "preferences": {
             "encryption": true,

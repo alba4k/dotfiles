@@ -28,6 +28,7 @@ hl.bind("SUPER + tab", hl.dsp.window.cycle_next())
 hl.bind("SUPER + SHIFT + tab", hl.dsp.focus({workspace = "m+1"}))
 
 hl.bind("SUPER + F", hl.dsp.window.fullscreen())
+hl.bind("SUPER + M", hl.dsp.window.fullscreen({mode = "maximized"}))
 hl.bind("SUPER + SHIFT + F", hl.dsp.window.float({action = "toggle"}))
 
 -- Moving windows with the mouse
