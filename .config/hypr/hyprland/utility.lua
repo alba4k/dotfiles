@@ -18,6 +18,18 @@ function ToggleHyprsunset()
     hyprsunset_enabled = not hyprsunset_enabled
 end
 
+local rgb_enabled = true
+function ToggleRGB()
+    if rgb_enabled then
+        hl.exec_cmd("openrgb -p 'off'")
+        print("RGB off")
+    else
+        hl.exec_cmd("openrgb -p 'ice blue'")
+        print("RGB on")
+    end
+    rgb_enabled = not rgb_enabled
+end
+
 local notified_low = false
 local notified_critical = false
 local low_level = 20

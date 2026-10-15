@@ -263,6 +263,7 @@
         "on-scroll-down": "for i in $(cat /tmp/ddcutil); do ddcutil setvcp --bus $i 10 - 5; done",
         "on-click": "hyprctl eval 'ToggleHyprsunset()'",
         "on-click-right": "ddcui",
+        "on-click-middle": "hyprctl eval 'ToggleRGB()'",
 
         "tooltip": false,
         "return-type": "json"
