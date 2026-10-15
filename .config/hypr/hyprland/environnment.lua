@@ -43,3 +43,4 @@ hl.env("SSH_AUTH_SOCK", "/home/alba4k/.bitwarden-ssh-agent.sock")
 hl.env("EDITOR", "/bin/nvim")
 hl.env("AQ_DRM_DEVICES", "/dev/dri/card0:/dev/dri/card1") -- Run on iGPU
 hl.env("SECURE_KEY_CONTAINER_BACKEND", "mlock") -- https://github.com/bitwarden/clients/issues/21661
+hl.env("GDK_WAYLAND_DISABLE", "ext_background_effect_manager_v1") -- https://github.com/hyprwm/Hyprland/discussions/16507
